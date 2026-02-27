@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart Calculator</title>
+<style>
+    body {
+        background-color: #1e1e2f;
+        font-family: Arial, sans-serif;
+        text-align: center;
+        color: white;
+    }
+
+    h1 {
+        margin-top: 30px;
+    }
+
+    #display {
+        width: 240px;
+        height: 40px;
+        font-size: 20px;
+        margin: 20px;
+        text-align: right;
+        padding: 5px;
+    }
+
+    button {
+        width: 50px;
+        height: 50px;
+        font-size: 18px;
+        margin: 5px;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #555;
+        color: white;
+    }
+</style>
+</head>
+<body>
+
+    <h1>Smart Calculator</h1>
+
+    <input type="text" id="display" readonly>
+
+    <br><br>
+
+    <button>7</button>
+    <button>8</button>
+    <button>9</button>
+    <button>/</button>
+
+    <br><br>
+
+    <button>4</button>
+    <button>5</button>
+    <button>6</button>
+    <button>*</button>
+
+    <br><br>
+
+    <button>1</button>
+    <button>2</button>
+    <button>3</button>
+    <button>-</button>
+
+    <br><br>
+
+    <button>C</button>
+    <button>0</button>
+    <button>.</button>
+    <button>=</button>
+    <button>+</button>
+<script>
+    let display = document.getElementById("display");
+
+    let buttons = document.querySelectorAll("button");
+
+    buttons.forEach(function(button) {
+    button.addEventListener("click", function() {
+
+        if (button.innerText === "=") {
+            display.value = eval(display.value);
+        } 
+        else if (button.innerText === "C") {
+            display.value = "";
+        } 
+        else {
+            display.value += button.innerText;
+        }
+  });
+    });
+</script>
+</body>
+</html>
